@@ -8,7 +8,7 @@ $(document).ready(() => {
 
 function getMovies(searchText) {
 	axios
-		.get('http://www.omdbapi.com?s=' + searchText)
+		.get('http://www.omdbapi.com?apikey=fe92626b&s=' + searchText)
 		.then((response) => {
 			console.log(response);
 			let movies = response.data.Search;
@@ -16,8 +16,8 @@ function getMovies(searchText) {
 			$.each(movies, (index, movie) => {
 				output += `
                     <div class="col-md-3">
-                        <div class="well text-center">
-                            <img src="${movie.Poster}">
+                        <div class="well text-center title-container">
+                            <div class="img-container"><img src="${movie.Poster}"></div>
                             <h5>${movie.Title}</h5>
                             <a
                                 onclick="movieSelected('${movie.imdbID}')" 
@@ -46,7 +46,7 @@ function getMovie() {
 	let movieId = sessionStorage.getItem('movieId');
 
 	axios
-		.get('http://www.omdbapi.com?i=' + movieId)
+		.get('http://www.omdbapi.com?apikey=fe92626b&i=' + movieId)
 		.then((response) => {
 			console.log(response);
 			let movie = response.data;
@@ -75,7 +75,7 @@ function getMovie() {
                         ${movie.Plot}
                         <hr>
                         <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-                        <a href="index.html" class="btn btn-default">Go Back to Search</a>
+                        <a href="index.html" class="btn btn-success">Go Back to Search</a>
                     </div>
                 </div>
             `;
