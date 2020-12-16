@@ -1,6 +1,31 @@
+.navbar {
+	margin-bottom: 20px;
+}
+
+.title-container {
+	border: 1px solid;
+	padding: 15px;
+	min-height: 320px;
+}
+
+.img-container {
+	width: 100%;
+	/* max-height: 200px; */
+	margin-bottom: 10px;
+}
+
+.text-center {
+	margin-bottom: 20px;
+}
+
+.text-center h5 {
+	font-size: 14px;
+}
+
 #movies img,
 #movie img {
 	width: 100%;
+	height: auto;
 }
 
 @media (min-width: 960px) {
